@@ -1,5 +1,11 @@
 import express, { Express, Response, Request } from "express";
 import { createHealthRouter } from "./routes/health";
+import { createNewsletterRouter } from "./routes/newsletter";
+import { PrismaClient } from "@prisma/client";
+
+interface CreateServerParams {
+  prisma: PrismaClient;
+}
 
 const errorHandler = (error: Error, req: Request, res: Response) => {
   console.log(error);
@@ -13,7 +19,7 @@ const errorHandler = (error: Error, req: Request, res: Response) => {
 // the server singleton
 let server: Express | null = null;
 
-export const createServer = (): Express => {
+export const createServer = ({ prisma }: CreateServerParams): Express => {
   if (server) return server;
 
   server = express();
@@ -23,6 +29,7 @@ export const createServer = (): Express => {
   server.use(express.urlencoded({ extended: true }));
 
   server.use("/v1", createHealthRouter());
+  server.use("/v1", createNewsletterRouter(prisma));
 
   server.use((req, res, next) => {
     next(new Error("Not found"));

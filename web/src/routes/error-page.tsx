@@ -12,9 +12,7 @@ export const ErrorPage = () => {
     <div className="text-center text-red-700">
       <h1>Oops</h1>
       <p>Sorry, an unexpected error has occurred</p>
-      <p>
-        <i>{error.statusText || error.error?.message}</i>
-      </p>
+      <p>{/* <i>{error.statusText || error.error?.message}</i> */}</p>
     </div>
   );
 };
