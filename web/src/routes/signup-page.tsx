@@ -51,7 +51,7 @@ export const SignupPage = () => {
 
   const onKeyDown = (event: KeyboardEvent<HTMLInputElement>) => {
     if (event.key === "Enter") {
-      onSignupClick();
+      void onSignupClick();
     }
   };
 
