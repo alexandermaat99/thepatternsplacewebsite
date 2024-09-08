@@ -6,10 +6,10 @@ module.exports = {
     fontFamily: {
       space: ["Space Grotesk"],
     },
-    colors: {
-      PPTcream: ["#FFEFE1"],
-      PTTgrey: ["#383838"],
-    },
+    // colors: {
+    //   PPTcream: ["#FFEFE1"],
+    //   PTTgrey: ["#383838"],
+    // },
   },
   plugins: [],
 };
